@@ -16,7 +16,12 @@ class App extends Component {
   componentDidMount(){
     genresAPI.get()
       .then(res => res.json())
-      .then(data => this.props.loadGenres(data.genres))
+      .then(data => {
+        if(data.genres)
+          this.props.loadGenres(data.genres)
+        else alert('Erro ao acessar a api')
+      }) 
+      .catch(() => console.error('erro ao acessar a api'))
   }
 
   render() { 

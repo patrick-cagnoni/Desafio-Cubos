@@ -47,13 +47,18 @@ const MoviesList = props => {
         promise
             .then(res => res.json())
             .then(data => {
-                //Para compensar as limitacoes da API, resolvi cortar 5 elementos do array com 20, portanto 4 paginas 
-                //do projeto equivalem a 1 pagina da API
-                const startPos = ((page - 1) % 4)  * perPage;
-                const endpos = startPos + perPage;
-                data.results = sample(data.results, startPos, endpos)
-                setMovies(data)
+                if(data.status_message)
+                    alert('erro ao acessar a api')
+                else {
+                    //Para compensar as limitacoes da API, resolvi cortar 5 elementos do array com 20, portanto 4 paginas 
+                    //do projeto equivalem a 1 pagina da API
+                    const startPos = ((page - 1) % 4)  * perPage;
+                    const endpos = startPos + perPage;
+                    data.results = sample(data.results, startPos, endpos)
+                    setMovies(data)
+                }
             })
+            .catch(console.error('erro ao acessar a API'))
     }
 
     return ( 
