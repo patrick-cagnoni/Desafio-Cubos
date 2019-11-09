@@ -1,0 +1,9 @@
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 15px;
+    font-family: 'Abel';
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+}

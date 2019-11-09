@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { LOAD_GENRES } from './store/reducers/mainReducer';
+import AppHeader from './Components/Header/AppHeader';
+import Home from './Components/Home/Home';
+import Movie from './Components/Movie/Movie';
+import MoviesList from './Components/MoviesList/MoviesList';
+import genresAPI from './api/genres';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import './variables.css';
+
+
+class App extends Component {
+  componentDidMount(){
+    genresAPI.get()
+      .then(res => res.json())
+      .then(data => this.props.loadGenres(data.genres))
+  }
+
+  render() { 
+    return ( 
+      <div className="app">
+        <div className="container">
+          <AppHeader />
+          <Switch>
+            <Route exact path="/" component={ Home } />
+            <Route path="/search" component={ MoviesList } />
+            <Route path="/movie/:id" component={ Movie } />
+          </Switch>
+        </div>
+      </div>
+     );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadGenres: genres => {
+      const action = {
+        type: LOAD_GENRES,
+        genres
+      }
+      dispatch(action);
+    }
+  }
+}
+ 
+export default connect(null, mapDispatchToProps)(App);

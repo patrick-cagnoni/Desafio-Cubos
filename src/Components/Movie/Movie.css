@@ -1,0 +1,199 @@
+.movie-header {
+    width: 100%;
+    background-color: #E6E6E6;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+}
+
+.movie-title {
+    font-family: Abel;
+    margin-left: 40px;
+    font-size: 1.5rem;
+}
+
+.movie-content h1, h2, h3 {
+    font-weight: normal;
+}
+
+.movie-content {
+    font-family: 'Lato';
+    display: flex;
+    margin-bottom: 50px;
+    background-color: #F2F2F2;
+}
+
+.movie-date {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.movie-data {
+    width: 100%;
+    padding: 28px 30px 0px 30px;
+    
+}
+
+.movie-data h3 {
+    font-family: Abel;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--color-secondary);
+}
+
+.movie-info {
+    margin-bottom: 50px;
+    font-family: Abel;
+    font-size: 1.2rem;
+}
+.movie-info ul {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+}
+
+.movie-info li {
+    margin-right: 10px;
+    text-align: center;
+}
+
+.movie-info-title {
+    display: block;
+    color: var(--color-primary);
+}
+
+.movie-info-data {
+    font-size: 0.8rem;
+    font-family: Lato;
+    
+}
+
+.movie-overview {
+    margin-bottom: 26px;
+}
+
+.movie-overview p {
+    overflow-y: auto;
+    height: 114px;
+}
+
+.movie-genres ul{
+    display: flex;
+}
+
+.movie-score .score-circle {
+    height: 116px;
+    width: 116px;
+    line-height: 116px;
+    font-size: 2.4rem;
+    position: relative;
+}
+
+.movie-score .score-circle:before {
+    content: "";
+    height: 93px;
+    width: 93px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    border: 6.6px solid var(--color-secondary);
+}
+
+.movie-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-poster {
+    width: 333px;
+    height: 501PX;
+}
+
+.movie-trailer {
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25% /* 16:9 */;
+    padding-top: 25;
+    height: 0;
+    margin-bottom: 40px;
+}
+
+.movie-trailer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* MEDIA QUERIES -------------------------------------------------- */
+
+@media only screen and (max-width: 840px){
+
+    .movie-poster {
+       display: none;
+    }
+
+    .movie-overview {
+        height: auto;
+    }
+
+    .movie-score {
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 535px){
+
+    .movie-title{
+        margin: 10px 0 0 0;
+        font-size: 1.2rem;
+    }
+
+    .movie-header {
+        flex-direction: column;
+        height: 80px;
+    }
+
+    .movie-date {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .movie-info ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 20px;
+    }
+
+    .movie-bottom {
+        display: block;
+    }
+
+    .movie-genres {
+        margin-bottom: 30px;
+    }
+ 
+}
+
+@media only screen and (max-width: 375px){
+
+    .movie-poster {
+       display: none;
+    }
+
+    .movie-info ul {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        row-gap: 20px;
+    }
+}
+

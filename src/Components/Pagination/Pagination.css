@@ -1,0 +1,40 @@
+.pagination {
+    font-family: Abel;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 50px;
+}
+.pagination-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-page {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.pagination-page.active{
+    font-family: 'Abel';
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    border-radius: 50%;
+    height: 41px;
+    width: 41px;
+    line-height: 41px;
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.pagination-page.active:before {
+    content: "";
+    height: 33px;
+    width: 33px;
+    position: absolute;
+    top:2px;
+    left: 2px;
+    border-radius: 50%;
+    border: 2px solid var(--color-secondary);
+}
