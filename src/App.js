@@ -17,11 +17,10 @@ class App extends Component {
     genresAPI.get()
       .then(res => res.json())
       .then(data => {
-        if(data.genres)
+        if(!data.status_message)
           this.props.loadGenres(data.genres)
         else alert('Erro ao acessar a api')
       }) 
-      .catch(() => console.error('erro ao acessar a api'))
   }
 
   render() { 
