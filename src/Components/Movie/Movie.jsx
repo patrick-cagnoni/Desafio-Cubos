@@ -12,7 +12,6 @@ const Movie = props => {
     const [ movie, setMovie ] = useState();
 
     useEffect(() => {
-        console.log(window.innerWidth)
         Promise.all([moviesAPI.getMovie(movieid), moviesAPI.getMovieTrailer(movieid)])
             .then(responses  => Promise.all(responses.map(res => res.json())))
             .then(
