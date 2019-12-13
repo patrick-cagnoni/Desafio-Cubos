@@ -1,5 +1,9 @@
 # DESAFIO CUBOS
 
+## Regras
+
+[Regras deste desafio](https://git.cubos.io/cubos/desafio-tecnico-web)
+
 ## Live Demo
 
 O App está rodando no endereço: https://desafio-cubos.netlify.com
