@@ -1,4 +1,4 @@
-# DESAFIO CUBOS
+# Desafio Cubos (Busca filmes)
 
 ## Regras
 
